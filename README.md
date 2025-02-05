@@ -76,7 +76,7 @@
    Сначала клонируйте репозиторий на свою локальную машину:
 
    bash
-   git clone https://github.com/yourusername/project-management-system.git
+   git clone https://github.com/global133/MyAPIProject.git
 
 
 ### 2. Перейдите в каталог проекта:
