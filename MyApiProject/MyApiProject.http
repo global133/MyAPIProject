@@ -1,8 +1,134 @@
 @MyApiProject_HostAddress = http://localhost:5247
 
-# GET {{MyApiProject_HostAddress}}/weatherforecast/
-# Accept: application/json
+//Projects
+POST {{MyApiProject_HostAddress}}/api/projects
+Content-Type: application/json
 
-# GET {{MyApiProject_HostAddress}/api/projects/{id}}
+{
+  "name":"New Project #1",
+  "description": "This is a new project description."
+}
+###
 
-# POST {{MyApiProject_HostAddress}/api/comments}
+POST {{MyApiProject_HostAddress}}/api/projects/1/user/1
+
+###
+GET {{MyApiProject_HostAddress}}/api/projects/1
+Accept: application/json
+
+###
+GET {{MyApiProject_HostAddress}}/api/projects
+
+###
+
+GET {{MyApiProject_HostAddress}}/api/projects/1/users
+###
+
+PUT {{MyApiProject_HostAddress}}/api/projects/1
+Content-Type: application/json
+
+{
+  "name":"Changed project #1",
+  "description": "This project was changed."
+}
+###
+
+DELETE {{MyApiProject_HostAddress}}/api/projects/1
+###
+
+DELETE {{MyApiProject_HostAddress}}/projects/1/user/1
+###
+
+//users
+
+POST {{MyApiProject_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "username":"bob01",
+  "firstname":"Bob",
+  "lastname":"Galov",
+  "email":"bob21@mail.com"
+}
+###
+
+GET {{MyApiProject_HostAddress}}/api/users
+###
+
+GET {{MyApiProject_HostAddress}}/api/users/1
+###
+
+GET {{MyApiProject_HostAddress}}/api/users/1/users
+###
+
+PUT {{MyApiProject_HostAddress}}/api/users/1
+Content-Type: application/json
+
+{
+  "username":"alex1",
+  "firstname":"Alex",
+  "lastname":"Void",
+  "email":"alexvoid@mail.com"
+}
+###
+
+DELETE {{MyApiProject_HostAddress}}/api/users/1
+###
+
+//Tasks
+
+POST {{MyApiProject_HostAddress}}/api/tasks/project/1
+Content-Type: application/json
+
+{
+  "title":"task #1",
+  "description": "you need go for a walk",
+  "status": "in progress"
+}
+###
+
+GET {{MyApiProject_HostAddress}}/api/tasks/project/1/status/in%20progress
+###
+
+GET {{MyApiProject_HostAddress}}/api/tasks/project/1
+###
+
+GET {{MyApiProject_HostAddress}}/api/tasks/1
+###
+
+PUT {{MyApiProject_HostAddress}}/api/tasks/1/project/1
+Content-Type: application/json
+
+{
+  "title":"changed task #1",
+  "description": "chanched you need go for a walk",
+  "status": "completed"
+}
+###
+
+DELETE {{MyApiProject_HostAddress}}/api/tasks/1/project/1
+###
+
+//comments
+
+POST {{MyApiProject_HostAddress}}/api/comments/task/1
+Content-Type: application/json
+
+{
+  "text":"this is a new comment for my task"
+}
+###
+
+GET {{MyApiProject_HostAddress}}/api/comments/task/1
+###
+
+PUT {{MyApiProject_HostAddress}}/api/comments/1/comment/1
+Content-Type: application/json
+
+{
+  "text":"now this comment is changed"
+}
+###
+
+DELETE {{MyApiProject_HostAddress}}/api/comments/1/comment/1
+
